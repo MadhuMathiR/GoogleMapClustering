@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion SDK_TARGET
+    defaultConfig {
+        minSdkVersion SDK_MINUMUM
+        targetSdkVersion SDK_TARGET
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    //enabled data binding
+    dataBinding {
+        enabled = true
+    }
+
+//no need to jack option enable for lamda expression if you defined compileOptions
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    //flavor dimension
+    flavorDimensions "default"
+
+    //app flavors
+    productFlavors {
+        dev {
+            dimension "default"
+            applicationId "com.googlemapclustering"
+            buildConfigField 'String', 'BASE_URL', '""'
+            resValue 'string', 'app_name', '"Map Cluster Dev"'
+            versionCode 1
+            versionName "1.0"
+        }
+
+        prod {
+            dimension "default"
+            applicationId "com.googlemapclustering"
+            buildConfigField 'String', 'BASE_URL', '""'
+            resValue 'string', 'app_name', '"Map Cluster"'
+            versionCode 1
+            versionName "1.0"
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:${VERSION_SUPPORT_LIB}"
+    implementation "com.android.support:support-v4:${VERSION_SUPPORT_LIB}"
+    implementation "com.android.support:design:${VERSION_SUPPORT_LIB}"
+
+    implementation "com.google.android.gms:play-services-maps:${VERSION_FIREBASE_SERVICE}"
+    implementation 'com.google.maps.android:android-maps-utils:0.5'
+    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
+apply plugin: 'com.google.gms.google-services'
