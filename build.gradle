@@ -20,7 +20,7 @@ ext {
     VERSION_PLAYSERVICE = '11.8.0'
     VERSION_FIREBASE_SERVICE = '11.8.0'
     VERSION_BUILD_TOOL = '27.0.0'
-    SDK_MINUMUM = 15
+    SDK_MINUMUM = 21
     SDK_TARGET = 27
 }
 allprojects {

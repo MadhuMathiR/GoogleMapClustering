@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -21,10 +23,10 @@ import com.googlemapclustering.utils.Utils;
 import com.googlemapclustering.webservice.MapWebservice;
 import com.googlemapclustering.webservice.WebServiceListener;
 
-
 import java.util.ArrayList;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
+
 
     private GoogleMap mMap;
     ArrayList<MapModels> mapModelsArrayList = new ArrayList<>();
@@ -32,6 +34,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     Context mContext;
     Activity mActivity;
     Dialog dialog;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         setContentView(R.layout.activity_maps);
         mContext = this;
         mActivity = this;
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(getString(R.string.title_activity_maps));
+        toolbar.setTitleTextColor(ContextCompat.getColor(mContext,R.color.white));
         dialog = Utils.dialogProgressBarDeclaration(mActivity);
         initializeMap();
         checkInternetAndLaunchLocationListApi();

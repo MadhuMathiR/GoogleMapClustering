@@ -1,5 +1,5 @@
 <resources>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps">Map Clustering</string>
     <string name="error">Error</string>
     <string name="alert_no_internet">No internet Connection</string>
 </resources>

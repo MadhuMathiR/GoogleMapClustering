@@ -28,7 +28,7 @@ public class MapWebservice {
 
     public void getLocationList() {
         try {
-            String URL = WebServiceApi.LOCATION_API;
+            String URL = WebServiceApi.LOCATION_API+context.getString(R.string.google_maps_key);
 
             OkHttpClient okHttpClient = new OkHttpClient.Builder().readTimeout(60, TimeUnit.SECONDS)
                     .connectTimeout(60, TimeUnit.SECONDS).retryOnConnectionFailure(true).build();

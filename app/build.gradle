@@ -32,7 +32,7 @@ android {
             dimension "default"
             applicationId "com.googlemapclustering"
             buildConfigField 'String', 'BASE_URL', '""'
-            resValue 'string', 'app_name', '"Map Cluster Dev"'
+            resValue 'string', 'app_name', '"Map Cluster"'
             versionCode 1
             versionName "1.0"
         }
