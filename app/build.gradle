@@ -13,16 +13,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    //enabled data binding
-    dataBinding {
-        enabled = true
-    }
-
-//no need to jack option enable for lamda expression if you defined compileOptions
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
     //flavor dimension
     flavorDimensions "default"
 
